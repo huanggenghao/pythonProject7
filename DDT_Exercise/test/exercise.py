@@ -7,7 +7,9 @@
 #1.如何显示字符串反转
 # import os
 
-import logging
+# import logging
+# import os.path
+# import time
 
 # str = 'abcdef'
 #
@@ -219,7 +221,52 @@ import logging
 
 # 如何写文件到日志
 
-logging.basicConfig(level='DEBUG')
+# logging.basicConfig(level=logging.DEBUG)
+#
+#
+# # 写法有误
+# file_path = os.path.abspath(os.path.dirname(__name__))
+# file_path1 = os.path.join(file_path, 'log')
+
+# print(file_path1)
+
+# 对文件进行判空操作
+# if os.path.exists(file_path1):
+#     pass
+# else:
+#     os.mkdir(file_path1)
+
+# # log_path是存放日志的路径
+# cur_path = os.path.dirname(os.path.realpath(__file__))
+# log_path = os.path.join(os.path.dirname(cur_path), 'logs')
+# # 如果不存在这个logs文件夹，就自动创建一个
+# if not os.path.exists(log_path):
+#     os.mkdir(log_path)
+
+
+
+# logname = os.path.join(file_path1,'%s.log' %time.strftime('%Y_%m_%d_%H_%M_%S'))
+#
+# # 创建日志处理器，并将日志记录到文件中
+# handle = logging.FileHandler(logname,'a',encoding='utf-8')
+#
+# # 设置日志处理器的日志级别为DEBUG
+# handle.setLevel(logging.DEBUG)
+#
+# # 定义日志格式
+# formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+#
+# handle.setFormatter(formatter)
+#
+# logging.getLogger(' ').addHandler(handle)
+#
+# logging.debug('写入数据')
+#
+# handle.close()
+#
+
+
+
 
 
 
