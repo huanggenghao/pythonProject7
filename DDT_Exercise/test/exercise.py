@@ -263,7 +263,24 @@
 # logging.debug('写入数据')
 #
 # handle.close()
+#  正则表达式
+
+# def match(pattern, string, flags=0):
+#     """Try to apply the pattern at the start of the string, returning
+#     a Match object, or None if no match was found."""
+#     return _compile(pattern, flags).match(string)
+
+# 这段代码是一个函数定义，它使用正则表达式的模式（pattern）来尝试匹配字符串（string），并返回一个Match对象，如果没有找到匹配则返回None。
 #
+# 函数的参数包括pattern（正则表达式模式）、string（要匹配的字符串）和flags（可选的标志参数，用于指定匹配的方式）。函数内部通过调用_compile函数来编译正则表达式模式，并使用match方法来尝试匹配字符串。如果找到匹配，则返回一个Match对象；如果未找到匹配，则返回None。
+#
+# 这段代码的目的是：封装了正则表达式模式的匹配过程，使其更易于使用。它提供了一种简单的方式来尝试匹配字符串，并返回匹配结果。
+import re
+
+if re.match(r'\d{3}\-\s+\d{3,8}','110- 11111'):
+    print("匹配成功")
+else:
+    print('匹配失败')
 
 
 
