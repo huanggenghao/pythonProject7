@@ -275,14 +275,34 @@
 # 函数的参数包括pattern（正则表达式模式）、string（要匹配的字符串）和flags（可选的标志参数，用于指定匹配的方式）。函数内部通过调用_compile函数来编译正则表达式模式，并使用match方法来尝试匹配字符串。如果找到匹配，则返回一个Match对象；如果未找到匹配，则返回None。
 #
 # 这段代码的目的是：封装了正则表达式模式的匹配过程，使其更易于使用。它提供了一种简单的方式来尝试匹配字符串，并返回匹配结果。
-import re
+# import re
+#
+# if re.match(r'\d{3}\-\s+\d{3,8}','110- 11111'):
+#     print("匹配成功")
+# else:
+#     print('匹配失败')
 
-if re.match(r'\d{3}\-\s+\d{3,8}','110- 11111'):
-    print("匹配成功")
-else:
-    print('匹配失败')
+#获取当前的时间
+# import datetime
+#
+# # now = datetime.datetime.now()
+#
+# #把str转换为datetime
+#
+# now = datetime.datetime.strptime('2024-01-15 10:36:01','%Y-%m-%d %H:%M:%S')
+#
+# print(now)
+
+from collections import Counter
+def count():
+    c = Counter()
+    for ch in 'programming':
+      c[ch] = c[ch]+1
+    return c
 
 
+
+print(count())
 
 
 
