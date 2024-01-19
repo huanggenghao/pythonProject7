@@ -293,19 +293,81 @@
 #
 # print(now)
 
-from collections import Counter
-def count():
-    c = Counter()
-    for ch in 'programming':
-      c[ch] = c[ch]+1
-    return c
+# from collections import Counter
+# def count():
+#     c = Counter()
+#     for ch in 'programming':
+#       c[ch] = c[ch]+1
+#     return c
+#
+#
+#
+# print(count())
+#对文件的操作
+# import os
+# #nt代表window
+# print(os.name)
+
+#拆分路径时，也不要直接去拆字符串，而要通过os.path.split()函数
+
+# c ='/user/bat/username.txt'
+#
+# print(os.path.split(c))
+
+# 我们把变量从内存中变成可存储或传输的过程称之为序列化，在Python中叫pickling，在其他语言中也被称之为serialization，marshalling，flattening等等，都是一个意思。
+#
+# 序列化之后，就可以把序列化后的内容写入磁盘，或者通过网络传输到别的机器上。
+# 程序运行的过程中，所有的变量都是在内存中
+# 反过来，把变量内容从序列化的对象重新读到内存里称之为反序列化，即unpickling。
+# import pickle
+# d = dict(name='Bob', age=20, score=88)
+# print(type(d))
+# print(type(pickle.dumps(d)))
+# import json
+#
+# d=['a','b',{'name':'ben','age':'28'}]
+#
+# print(json.dumps(d))
+
+# 如何启动一个子进程并结束
+# from multiprocessing import Process
+# import os
+# def childprocess():
+#     print("run children id is "+str(os.getpid()))
+#
+# if __name__=='__main__':
+#
+#     print('parent process is '+str(os.getpid()))
+#     p = Process(target=childprocess)
+#     print('children process will start')
+#     p.start()
+#     p.join()
+#     print('children ending')
+# %s是格式化字符串中的占位符，表示要插入一个字符串
+# import os
+# print(os.path)
+# print('原来是这个用法 %s' %os.path)
+
+import time,threading
 
 
 
-print(count())
+def loop():
+    print("thread %s is running" % threading.current_thread().name)
+    n = 0
 
+    while n < 5:
+        n = n + 1
+        print("thread %s >>> %s" % (threading.current_thread().name, n))
 
+    print("thread %s is ending" % threading.current_thread().name)
 
+print("thread %s is running" % threading.current_thread().name)
 
+t = threading.Thread(target=loop,name='loopthread')
 
+t.start()
 
+t.join()
+
+print("thread %s is ending"%threading.current_thread().name)
