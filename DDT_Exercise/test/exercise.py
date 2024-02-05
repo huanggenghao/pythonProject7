@@ -275,9 +275,18 @@
 # 函数的参数包括pattern（正则表达式模式）、string（要匹配的字符串）和flags（可选的标志参数，用于指定匹配的方式）。函数内部通过调用_compile函数来编译正则表达式模式，并使用match方法来尝试匹配字符串。如果找到匹配，则返回一个Match对象；如果未找到匹配，则返回None。
 #
 # 这段代码的目的是：封装了正则表达式模式的匹配过程，使其更易于使用。它提供了一种简单的方式来尝试匹配字符串，并返回匹配结果。
+
+# re模块中match(pattern,string[,flags]),检查string的开头是否与pattern匹配。
+
+# re模块中research(pattern,string[,flags]),在string搜索pattern的第一个匹配值
 # import re
 #
-# if re.match(r'\d{3}\-\s+\d{3,8}','110- 11111'):
+# if re.match(r'\d{3}\-\s+\d{3,8}','1110- 11111'):
+#     print("匹配成功")
+# else:
+#     print('匹配失败')
+#
+# if re.search(r'\d{3}\-\s+\d{3,8}','1110- 111'):
 #     print("匹配成功")
 # else:
 #     print('匹配失败')
@@ -348,26 +357,78 @@
 # print(os.path)
 # print('原来是这个用法 %s' %os.path)
 
-import time,threading
+# import time,threading
+#
+#
+#
+# def loop():
+#     print("thread %s is running" % threading.current_thread().name)
+#     n = 0
+#
+#     while n < 5:
+#         n = n + 1
+#         print("thread %s >>> %s" % (threading.current_thread().name, n))
+#
+#     print("thread %s is ending" % threading.current_thread().name)
+#
+# print("thread %s is running" % threading.current_thread().name)
+#
+# t = threading.Thread(target=loop,name='loopthread')
+#
+# t.start()
+#
+# t.join()
+#
+# print("thread %s is ending"%threading.current_thread().name)
+# import copy
+#
+#
+# a = [10, 20, [5, 6]]
+# b = copy.copy(a)
+# print("a", a)
+# print("b", b)
+# b.append(30)
+# print(a)
+# print(b)
+# b[2][0] = 1
+# print(b[2][0])
+# print(a)
+# print(b)
+# b[2].append(7)
+# print("浅拷贝......")
+# print("a", a)
+# print("b", b)
+# s = 'hello world'
+# dict = {}
+# for i in s:
+#     if i in dict:
+#         dict[i]=dict[i]+1
+#     else:
+#         dict[i]=1
+# print(dict)
+#
+# 经典手写冒泡排序
+# a = [1,1,2,3,88,55,77]
+#
+# for i in  range(len(a)):
+#     for j in range(len(a)-i-1):
+#         if a[j] > a[j+1]:
+#             a[j+1],a[j] = a[j],a[j+1]
+# print(a)
+# print(a[5])
 
 
 
-def loop():
-    print("thread %s is running" % threading.current_thread().name)
-    n = 0
 
-    while n < 5:
-        n = n + 1
-        print("thread %s >>> %s" % (threading.current_thread().name, n))
 
-    print("thread %s is ending" % threading.current_thread().name)
 
-print("thread %s is running" % threading.current_thread().name)
 
-t = threading.Thread(target=loop,name='loopthread')
 
-t.start()
 
-t.join()
 
-print("thread %s is ending"%threading.current_thread().name)
+
+
+
+
+
+
